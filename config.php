@@ -20,6 +20,16 @@ $sql = "SELECT * FROM books";
 $stmt = $db->query($sql);
 $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
+// Handle book deletion
+if(isset($_POST['delete']) && isset($_POST['bookID'])) {
+    $bookID = $_POST['bookID'];
+    $sql = "DELETE FROM books WHERE bookID = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$bookID]);
+    
+    // After deletion, redirect back to home.php
+    header("Location: home.php");
+    exit;
+}
 
 ?>

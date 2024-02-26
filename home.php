@@ -10,6 +10,10 @@
     <ul id="bookList">
         <?php foreach ($books as $book): ?>
             <li><a href="singleBook.php?bookID=<?php echo $book['bookID']; ?>"><?php echo $book['bookName']; ?></a></li>
+            <form action="home.php" method="post" style="display: inline;">
+                    <input type="hidden" name="bookID" value="<?php echo $book['bookID']; ?>">
+                    <button type="submit" name="delete">Delete</button>
+             </form>
         <?php endforeach; ?>
     </ul>
     <h1>Add Book</h1>

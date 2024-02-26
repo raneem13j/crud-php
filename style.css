@@ -24,12 +24,23 @@ ul {
 
 li {
     margin-bottom: 5px;
+    font-size: 20px;
 }
 a{
     text-decoration: none;
     cursor: pointer;
-    color: #e74c3c;
+    color: black;
 }
+a:hover{
+   color:blue;
+}
+button {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
 
 /* Style the delete button */
 form button {
