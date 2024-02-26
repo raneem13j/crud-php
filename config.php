@@ -14,4 +14,10 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
+
+// Fetch books from the database
+$sql = "SELECT * FROM books";
+$stmt = $db->query($sql);
+$books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>

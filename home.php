@@ -1,8 +1,5 @@
-<?php include('config.php');
-// Fetch books from the database
-$sql = "SELECT * FROM books";
-$stmt = $db->query($sql);
-$books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+<?php
+include('config.php');
 
 ?>
 <!DOCTYPE html>
@@ -16,19 +13,21 @@ $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h1>Book List</h1>
     <ul id="bookList">
         <?php foreach ($books as $book): ?>
-            <li><?php echo $book['bookName']; ?> - <?php echo $book['autherName']; ?> - $<?php echo $book['price']; ?></li>
+            <li><?php echo $book['bookName']; ?> - <?php echo $book['authorName']; ?> - $<?php echo $book['price']; ?></li>
+            <button type= "submit" id = "register" name="submit">delet</button>
+            <button type= "submit" id = "register" name="submit">edit</button>
         <?php endforeach; ?>
     </ul>
     <h1>Add Book</h1>
     <form action="home.php" method="post">
               <?php  
              if (isset($_POST['submit'])) {
-               $bookName = $_POST['bookName'];
-               $autherName = $_POST['autherName'];
-               $price = $_POST['price'];
-               $sql = "INSERT INTO books(bookName, autherName, price) VALUES (?, ?, ?)";
-               $stmtinsert = $db->prepare($sql);
-               $result = $stmtinsert->execute([$bookName, $autherName, $price]);
+                $bookName = $_POST['bookName'];
+                $authorName = $_POST['authorName'];
+                $price = $_POST['price'];
+                $sql = "INSERT INTO books(bookName, authorName, price) VALUES (?, ?, ?)";
+                $stmtinsert = $db->prepare($sql);
+                $result = $stmtinsert->execute([$bookName, $authorName, $price]);
         
             if ($result) {
                   echo "Successfully saved, you added book";
@@ -44,7 +43,7 @@ $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <label>Book Name</label>
             <input type="text" name="bookName" id = "bookName" placeholder= "Book Name" required/>
             <label>Auther Name</label>
-            <input type="text" name="autherName" id = "autherName" placeholder= " Auther Name" required/>
+            <input type="text" name="authorName" id = "authorName" placeholder= " Auther Name" required/>
             <label>Price</label>
             <input type="text" name="price" id = "price" placeholder= "Price" required/>
             <button type= "submit" id = "register" name="submit">submit</button>
@@ -52,8 +51,11 @@ $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </form>
         <h1>Edit Book</h1>
        <form action="home.php" method="put">
-          <label>Book ID</label>
-          <input type="text" name="bookID" id="bookID" placeholder="Book ID" required/> <!-- Assuming you have a book ID -->
+       <?php  
+
+
+
+       ?>
           <label>Book Name</label>
           <input type="text" name="bookName" id="bookName" placeholder="Book Name" required/>
           <label>Author Name</label>
