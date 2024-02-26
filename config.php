@@ -20,4 +20,6 @@ $sql = "SELECT * FROM books";
 $stmt = $db->query($sql);
 $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 ?>
