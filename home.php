@@ -1,7 +1,4 @@
-<?php
-include('config.php');
-
-?>
+<?php include('config.php');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +6,10 @@ include('config.php');
     <link rel= "stylesheet" href= "style.css">
 </head>
 <body>
-<body>
     <h1>Book List</h1>
     <ul id="bookList">
         <?php foreach ($books as $book): ?>
-            <li><?php echo $book['bookName']; ?> - <?php echo $book['authorName']; ?> - $<?php echo $book['price']; ?></li>
-            <button type= "submit" id = "register" name="submit">delet</button>
-            <button type= "submit" id = "register" name="submit">edit</button>
+            <li><a href="singleBook.php?bookID=<?php echo $book['bookID']; ?>"><?php echo $book['bookName']; ?></a></li>
         <?php endforeach; ?>
     </ul>
     <h1>Add Book</h1>
@@ -49,21 +43,5 @@ include('config.php');
             <button type= "submit" id = "register" name="submit">submit</button>
       
         </form>
-        <h1>Edit Book</h1>
-       <form action="home.php" method="put">
-       <?php  
-
-
-
-       ?>
-          <label>Book Name</label>
-          <input type="text" name="bookName" id="bookName" placeholder="Book Name" required/>
-          <label>Author Name</label>
-          <input type="text" name="autherName" id="autherName" placeholder="Author Name" required/>
-          <label>Price</label>
-          <input type="text" name="price" id="price" placeholder="Price" required/>
-          <button type="submit" id="edit" name="submit">Submit</button>
-        </form>
-
 </body>
 </html>
